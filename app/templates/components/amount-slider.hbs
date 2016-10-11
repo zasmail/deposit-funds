@@ -1,0 +1,17 @@
+<!-- <table class="slider">
+  <tr>
+    {{#each sliderValues as |value|}}
+      <td class={{if value.active "slider-value active" "slider-value"}} {{action 'changedSelection' value}}>
+        <span>${{value.amount}}</span>
+      </td>
+      <td class="spacer"></td>
+    {{/each}}
+  </tr>
+</table> -->
+<div class="slider">
+  {{#each sliderValues as |value|}}
+    <div class={{if value.active "small-1 small-centered columns slider-value active" "small-1 small-centered columns slider-value"}} {{action 'changedSelection' value}}>
+      <span>${{value.amount}}</span>
+    </div>
+  {{/each}}
+</div>

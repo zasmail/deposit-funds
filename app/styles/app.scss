@@ -1,0 +1,7 @@
+@import 'foundation';
+@import "./variables";
+@import "./deposit-form";
+
+.ember-application{
+  background: $page-background;
+}
