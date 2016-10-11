@@ -14,7 +14,7 @@ export default Ember.Component.extend({
   year:     null,
 
   setMonthAndYear: Ember.on('didInsertElement', Ember.observer('date', function(){
-    if(this.get('date') == null){
+    if(this.get('date') === null){
       return;
     } else{
       if(this.get('date').split('/').length > 1){
