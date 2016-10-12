@@ -33,6 +33,7 @@ export default Ember.Component.extend({
         this.set('creditCardErrors',"Please enter a name");
       } else{
         this.set('creditCardErrors', null);
+        this.set('cardSaved', false);
         this.sendAction('processCard', {
           number: this.get('number'),
           expMonth: this.get('month'),

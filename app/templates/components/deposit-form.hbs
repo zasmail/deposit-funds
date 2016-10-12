@@ -32,7 +32,7 @@
           {{input value=cvc placeholder="CVC" pattern="\d\d\d" required=true class="input-field"}}
         </div>
       </div>
-      <button type="submit" class="submit-button">Deposit funds</button>
+      <button type="submit" class="submit-button" disabled={{stripeIsProcessing}}>Deposit funds</button>
     </form>
   </div>
 </div>
