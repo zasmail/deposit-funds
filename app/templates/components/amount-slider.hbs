@@ -8,10 +8,12 @@
     {{/each}}
   </tr>
 </table> -->
-<div class="slider">
-  {{#each sliderValues as |value|}}
-    <div class={{if value.active "small-1 small-centered columns slider-value active" "small-1 small-centered columns slider-value"}} {{action 'changedSelection' value}}>
-      <span>${{value.amount}}</span>
-    </div>
-  {{/each}}
-</div>
+<table class="slider">
+  <tr class="slider-row">
+    {{#each sliderValues as |value|}}
+      <th class={{if value.active "slider-value active" "slider-value"}} {{action 'changedSelection' value}}>
+        <span>${{value.amount}}</span>
+      </th>
+    {{/each}}
+  </tr>
+</table>

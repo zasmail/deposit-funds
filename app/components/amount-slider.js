@@ -5,9 +5,11 @@ export default Ember.Component.extend({
   currentSelection: null,
 
   sliderValues: Ember.computed('amounts', 'currentSelection', function(){
-    return this.get('amounts').map(function(value){
-      return { amount: value, active: this.get('currentSelection') == value};
-    }.bind(this));
+    if(this.get('amounts')){
+      return this.get('amounts').map(function(value){
+        return { amount: value, active: this.get('currentSelection') === value};
+      }.bind(this));
+    }
   }),
 
   actions: {

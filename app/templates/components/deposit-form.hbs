@@ -1,36 +1,38 @@
 <div class="deposit-form">
-  <div class="header-text">
-    <p class="title-text">Deposit Funds</p>
-    <!-- ********** NEEDS COMMAS***********  -->
-    <p>$4 won in the last 24 hours</p>
+  <div class="small-11 small-centered columns">
+    <div class="header-text">
+      <p class="title-text">Deposit Funds</p>
+      <!-- ********** NEEDS COMMAS***********  -->
+      <p class="sub-title">$4 won in the last 24 hours</p>
+    </div>
+    {{amount-slider amounts=amounts currentSelection=amount changedSelection='changedSelection'}}
+
+    <form class="cc-form" {{action 'runCard' on='submit'}}>
+
+      {{#liquid-if creditCardErrors}}
+        <p class="alert">{{creditCardErrors}}</p>
+      {{/liquid-if}}
+      {{#liquid-if cardSaved}}
+        <p class="alert">Card verified</p>
+      {{/liquid-if}}
+
+      <div class="row">
+        <div class="small-12 columns inline-block">
+          {{input value=number placeholder="Credit card number" required=true class="input-field"}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 medium-7 columns inline-block">
+          {{input value=name placeholder="Name on card" required=true class="input-field"}}
+        </div>
+        <div class="small-8 medium-3 columns inline-block">
+          {{input value=date placeholder="MM/YY" pattern="(0[1-9]|1[012])[- /.]\d\d" required=true class="input-field"}}
+        </div>
+        <div class="small-4 medium-2 columns inline-block">
+          {{input value=cvc placeholder="CVC" pattern="\d\d\d" required=true class="input-field"}}
+        </div>
+      </div>
+      <button type="submit" class="submit-button">Deposit funds</button>
+    </form>
   </div>
-  {{amount-slider amounts=amounts currentSelection=amount changedSelection='changedSelection'}}
-
-  {{#if creditCardErrors}}
-    <p>{{creditCardErrors}}</p>
-  {{/if}}
-  {{#if cardSaved}}
-    <p>Card saved!</p>
-  {{/if}}
-
-  <form {{action 'runCard' on='submit'}}>
-    <div class="row">
-      <div class="small-12 columns inline-block">
-        {{input value=number placeholder="Credit card number" required=true class="input-field"}}
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-12 medium-7 columns inline-block">
-        {{input value=name placeholder="Name on card" required=true class="input-field"}}
-      </div>
-      <div class="small-8 medium-3 columns inline-block">
-        {{input value=date placeholder="MM/YY" pattern="(0[1-9]|1[012])[- /.]\d\d" required=true class="input-field"}}
-      </div>
-      <div class="small-4 medium-2 columns inline-block">
-        {{input value=cvc placeholder="CVC" pattern="\d\d\d" required=true class="input-field"}}
-      </div>
-    </div>
-    <button type="submit" class="submit-button">Deposit funds</button>
-  </form>
-
 </div>

@@ -5,7 +5,12 @@ module.exports = function(deployTarget) {
     build: {}
     // include other plugin configuration that applies to all deploy targets here
   };
-
+  ENV.s3 = {
+    accessKeyId: 'AKIAIB36XRE6AR3VEHPA',
+    secretAccessKey: '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',
+    bucket: 'deposit-fund',
+    region: 'us-west-2'
+  };
   if (deployTarget === 'development') {
     ENV.build.environment = 'development';
     // configure other plugins for development deploy target here
